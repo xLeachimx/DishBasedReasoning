@@ -18,14 +18,15 @@ class Dish{
 public:
 	//constructors
 	Dish();
-	Dish(string n, vector<string> attributes);
+	Dish(string n, vector<string> attr);
 
 	//accessors
 	vector<string> getAttributes();
 	string getName();
 
 	//comparisons
-	bool operator==(const Dish &copy)
+	int similarity(Dish comp);
+	bool operator==(const Dish &copy);
 protected:
 private:
 	string name;
