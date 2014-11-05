@@ -34,6 +34,6 @@ double Dish::similarity(Dish comp){
 	return (2*(intersection(attributes, comp.getAttributes()))) / (attributes.size()+comp.getAttributes().size());
 }
 
-bool Dish::operator==(const Dish &copy){
-	return name == copy.name;
+bool Dish::operator==(const string &comp){
+	return name == comp;
 }
