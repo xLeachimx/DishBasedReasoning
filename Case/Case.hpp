@@ -32,7 +32,6 @@ public:
 	//comparison
 	int similarity(Case comp);
 protected:
-	vector<string> intersection(vector<string> one, vector<string> two);
 private:
 	vector<string> likes;
 	vector<string> dislikes;
