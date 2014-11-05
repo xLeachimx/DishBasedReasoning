@@ -26,7 +26,7 @@ public:
 
 	//comparisons
 	int similarity(Dish comp);
-	bool operator==(const Dish &copy);
+	bool operator==(const string &comp);
 protected:
 private:
 	string name;
