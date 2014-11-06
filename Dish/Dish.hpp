@@ -14,6 +14,8 @@
 using std::vector;
 using std::string;
 
+class Case;
+
 class Dish{
 public:
 	//constructors
@@ -25,7 +27,9 @@ public:
 	string getName();
 
 	//comparisons
-	int similarity(Dish comp);
+	double similarity(Dish comp);
+	int similarity(Case comp);
+
 	bool operator==(const string &comp);
 protected:
 private:

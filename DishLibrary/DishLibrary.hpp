@@ -15,6 +15,7 @@ using std::vector;
 using std:string;
 
 #include "Dish.hpp"
+#include "Case.hpp"
 
 class DishLibrary{
 public:
@@ -32,6 +33,10 @@ public:
 	bool isDish(string name);
 	Dish getDish(string name);
 	int findDish(string name);
+
+	//similarities
+	Dish mostSimilar(Dish comp);
+	Dish mostSimilar(Case Comp);
 
 	//operators
 	Dish &operator[](const int index);

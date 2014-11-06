@@ -1,9 +1,8 @@
 /*File: Case.hpp
 *Author: Michael Huelsman
 *Notes:
-*	THe higher the integer the greater the similarity
+*	The higher the integer the greater the similarity
 *Problems:
-*	As of yet no Dish.hpp
 *Project:
 *	Dish Based Reasoning
 */
@@ -16,7 +15,7 @@
 using std::vector;
 using std::string;
 
-#include "Dish.hpp" //to be made
+#include "Dish.hpp"
 
 class Case{
 public:

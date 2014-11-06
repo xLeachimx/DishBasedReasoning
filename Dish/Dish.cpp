@@ -8,6 +8,7 @@
 
 #include "Dish.hpp"
 #include "Util.hpp"
+#include "Case.hpp"
 
 //constructors
 Dish::Dish(){
@@ -32,6 +33,10 @@ string Dish::getName(){
 //comparisons
 double Dish::similarity(Dish comp){
 	return (2*(intersection(attributes, comp.getAttributes()))) / (attributes.size()+comp.getAttributes().size());
+}
+
+int similarity(Case comp){
+	return (intersection(attributes, comp.getLikes()) - intersection(attributes, comp.getDislikes()));
 }
 
 bool Dish::operator==(const string &comp){
