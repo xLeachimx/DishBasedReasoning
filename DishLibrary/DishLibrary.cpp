@@ -49,6 +49,34 @@ int DishLibrary::findDish(string name){
 	return -1;
 }
 
+Dish DishLibrary::mostSimilar(Dish comp){
+	double highest = 0.0;
+	int highLoc = -1;
+	for(int i = 0;i < dishes.size();i++){
+		double temp = dishes[i].similarity(comp);
+		if(dishes[i].similarity(comp) > highest){
+			highest = temp;
+			highLoc = i;
+		}
+	}
+	if(highLoc == -1)return Dish();
+	return dishes[i];
+}
+
+Dish DishLibrary::mostSimilar(Case Comp){
+	int highest = 0.0;
+	int highLoc = -1;
+	for(int i = 0;i < dishes.size();i++){
+		int temp = dishes[i].similarity(comp);
+		if(dishes[i].similarity(comp) > highest){
+			highest = temp;
+			highLoc = i;
+		}
+	}
+	if(highLoc == -1)return Dish();
+	return dishes[i];
+}
+
 //operators
 Dish &DishLibrary::operator[](const int index){
 	return dishes[index];
