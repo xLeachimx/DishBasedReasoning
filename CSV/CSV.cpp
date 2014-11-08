@@ -7,29 +7,20 @@ using std::getline;
 using std::endl;
 
 CSV::CSV(){
-	items = vector<string>();
+	items = vector<vector<string>>();
 }
 
 CSV::CSV(string filename){
-	items = vector<string>();
+	items = vector<vector<string>>();
 	read(filename); 
 }
 
-//Take the items colSize at a time(allows for multiple ways top parse a file just in case
-vector<vector<string>> CSV::parseItem(int colSize){
-	if(colSize == 0)return vector<vector<string>>();
-	vector<vector<string>> result = vector<vector<string>>();
-	for(int i = 0;i < items.size();i++){
-		if(i%colSize == 0){
-			result.push_back(vector<string>()); //make sure the place of insert exists
-		}
-		result[i/colSize].push_back(items[i]); //put them in the proper slots
-	}
-	return result;
+vector<<vector> CSV::getItems(){
+	return items;
 }
 
 void CSV::addItem(string str){
-	items.push_back(str);
+	items.push_back(vector<str>(1,str));
 }
 
 //file I/O
@@ -41,9 +32,7 @@ bool CSV::read(string filename){
 			string line = '';
 			getline(fin,line);
 			vector<string> itemSplit = split(line);
-			for(int i = 0;i < itemSplit.size();i++){
-				items.push_back(itemSplit[i]);
-			}
+			items.push_back(itemSplit);
 		}
 		fin.close();
 	}
@@ -54,7 +43,9 @@ bool CSV::write(string filename){
 	fout.open(filename);
 	if(fout){
 		while(!fout.eof()){
-			fout << join(items) << endl;
+			for(int i = 0;i < items.size();i++){
+				fout << join(items[i]) << endl;
+			}
 		}
 		fout.close();
 	}

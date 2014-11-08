@@ -19,9 +19,7 @@ public:
 	CSV();
 	CSV(string filename);
 	
-	vector<vector<string>> parseItem(int colSize);
-	
-	void addItem(string str);
+	vecotr<vector<string>> getItems();
 	
 	//file I/O
 	bool read(string filename);
@@ -31,7 +29,7 @@ protected:
 	vector<string> split(string str, char sep = ',');
 	string join(vector<string> str, char sep = ',');
 private:
-	vector<string> items;
+	vector<vector<string>> items;
 };
 
 #endif
