@@ -26,8 +26,15 @@ public:
 	//backup initialization
 	void init(string caseFile, string dishFile);
 
+	void addCase(string casefile, Dish solution);
+
 	Dish query(string filename);
+
+	bool save(string caseFile, string dishFile);
 protected:
+	void parseDishLibFile(string filename);
+	void parseCaseLibFile(string filename);
+	Case parseCaseFile(string filename);
 private:
 	DishLibrary dishLib;
 	CaseLibrary caseLib;

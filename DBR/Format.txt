@@ -1,0 +1,19 @@
+Dish Library Format
+
+<Dish-name-1>,<Dish-1-attribute-1>,<Dish-1-attribute-2>,<Dish-1-attribute-3>,...,<Dish-1-attribute-n>
+<Dish-name-2>,<Dish-2-attribute-1>,<Dish-2-attribute-2>,<Dish-2-attribute-3>,...,<Dish-2-attribute-n>
+<Dish-name-3>,<Dish-3-attribute-1>,<Dish-3-attribute-2>,<Dish-3-attribute-3>,...,<Dish-3-attribute-n>
+.
+.
+.
+<Dish-name-n>,<Dish-n-attribute-1>,<Dish-attribute-2>,<Dish-attribute-3>,...,<Dish-attribute-n>
+
+Case Library Format
+
+<Case-1-Like-1>,<Case-1-Like-2>,<Case-1-Like-3>,...,<Case-1-Like-n>
+<Case-2-Like-1>,<Case-2-Like-2>,<Case-2-Like-3>,...,<Case-2-Like-n>
+<Case-3-Like-1>,<Case-3-Like-2>,<Case-3-Like-3>,...,<Case-3-Like-n>
+.
+.
+.
+<Case-n-Like-1>,<Case-n-Like-2>,<Case-n-Like-3>,...,<Case-n-Like-n>
