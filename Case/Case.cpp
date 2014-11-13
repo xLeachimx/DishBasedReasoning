@@ -36,6 +36,21 @@ Dish Case::getSolution(){
 	return solution;
 }
 
+string Case::toString(){
+	string result = "";
+	for(int i = 0;i < likes.size();i++){
+		result += likes[i];
+		if(i != likes.size()-1)result += ',';
+	}
+	result += '\n';
+	for(int i = 0;i < dislikes.size();i++){
+		result += dislikes[i];
+		if(i != dislikes.size()-1)result += ',';
+	}
+	result += '\n';
+	result += solution.getName();
+	return result;
+}
 
 //comparison
 int Case::similarity(Case comp){

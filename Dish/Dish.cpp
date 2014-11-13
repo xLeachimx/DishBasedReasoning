@@ -30,6 +30,16 @@ string Dish::getName(){
 	return name;
 }
 
+string Dish::toString(){
+	string result = name;
+	result += ',';
+	for(int i = 0;i < likes.size();i++){
+		result += likes[i];
+		if(i != likes.size()-1)result += ',';
+	}
+	return result;
+}
+
 //comparisons
 double Dish::similarity(Dish comp){
 	return (2*(intersection(attributes, comp.getAttributes()))) / (attributes.size()+comp.getAttributes().size());

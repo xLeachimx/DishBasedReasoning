@@ -27,6 +27,7 @@ public:
 	vector<string> getLikes();
 	vector<string> getDislikes();
 	Dish getSolution();
+	string toString();
 
 	//comparison
 	int similarity(Case comp);

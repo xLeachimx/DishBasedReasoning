@@ -25,6 +25,7 @@ public:
 	//accessors
 	vector<string> getAttributes();
 	string getName();
+	string toString();
 
 	//comparisons
 	double similarity(Dish comp);
