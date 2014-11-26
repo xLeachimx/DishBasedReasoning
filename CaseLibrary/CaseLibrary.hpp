@@ -10,7 +10,7 @@
 #ifndef CASELIBRARY_HPP
 #define CASELIBRARY_HPP
 
-static double THRESHOLD = .25;
+static double THRESHOLD = 0.05;
 
 #include <vector>
 #include <string>
