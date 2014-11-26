@@ -29,7 +29,7 @@ public:
 
 	//comparisons
 	double similarity(Dish comp);
-	int similarity(Case comp);
+	double similarity(Case comp);
 
 	bool operator==(const string &comp);
 protected:

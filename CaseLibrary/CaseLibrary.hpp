@@ -10,6 +10,8 @@
 #ifndef CASELIBRARY_HPP
 #define CASELIBRARY_HPP
 
+static double THRESHOLD = .25;
+
 #include <vector>
 #include <string>
 using std::vector;

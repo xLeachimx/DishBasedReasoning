@@ -42,11 +42,15 @@ string Dish::toString(){
 
 //comparisons
 double Dish::similarity(Dish comp){
-	return (2*(intersection(attributes, comp.getAttributes()))) / (attributes.size()+comp.getAttributes().size());
+	double numerator = intersection(attributes, comp.getAttributes()).size();
+	double denominator = union(attributes, comp.getAttributes()).size();
+	return numerator/denominator;
 }
 
-int similarity(Case comp){
-	return (intersection(attributes, comp.getLikes()) - intersection(attributes, comp.getDislikes()));
+double similarity(Case comp){
+	double numerator = intersection(attributes, comp.getLikes()).size() - intersection(attributes, comp.getDislikes()).size();
+	double denominator = union(attributes, comp.getLikes());
+	return numerator/denominator;
 }
 
 bool Dish::operator==(const string &comp){

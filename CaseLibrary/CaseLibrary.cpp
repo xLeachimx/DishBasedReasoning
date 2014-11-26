@@ -6,6 +6,8 @@
 * Dish Based Reasoning
 */
 
+#include "CaseLibrary.hpp"
+
 #include <algorithm>
 using std::sort;
 
@@ -32,8 +34,10 @@ void CaseLibrary::addCase(Case c){
 vector<CaseNode> CaseLibrary::queryList(Case c){//gets all similar cases
 	vector<CaseNode> result = vector<CaseNode>();
 	for(int i = 0;i < cases.size();i++){
-		CaseNode temp = CaseNode(cases[i], c.similarity(cases[i]));
-		result.push_back(temp);
+		if(c.similarity(cases[i]) > THRESHOLD){
+			CaseNode temp = CaseNode(cases[i], c.similarity(cases[i]));
+			result.push_back(temp);
+		}
 	}
 	sort(temp);
 	return result;

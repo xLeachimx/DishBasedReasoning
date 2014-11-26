@@ -30,7 +30,7 @@ public:
 	string toString();
 
 	//comparison
-	int similarity(Case comp);
+	double similarity(Case comp);
 protected:
 private:
 	vector<string> likes;

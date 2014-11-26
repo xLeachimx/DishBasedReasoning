@@ -11,5 +11,7 @@
 #define UTIL_HPP
 
 vector<string> intersection(vector<string> one, vector<string> two);
+vector<string> union(vector<string> one, vector<string> two);
+vector<string> unique(vector<string> set);
 
 #endif
