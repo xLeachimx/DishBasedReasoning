@@ -37,8 +37,24 @@ void DBR::addCase(string casefile, Dish solution){
 	caseLib.addCase(temp);
 }
 
+void DBR::addCase(Case add){
+	caseLib.addCase(add);
+}
+
+void DBR::addDish(Dish add){
+	dishLib.addDish(add);
+}
+
 Dish DBR::query(string filename){
 	Case problem = parseCaseFile(filename);
+	Dish solution = caseLib.querySol(problem);
+	if(solution.getName() == ""){
+		solution = DishLibrary.query(problem);
+	}
+	return solution;
+}
+
+Dish DBR::query(Case problem){
 	Dish solution = caseLib.querySol(problem);
 	if(solution.getName() == ""){
 		solution = DishLibrary.query(problem);
