@@ -15,11 +15,11 @@ class CaseNode{
 public:
 	//constructor
 	CaseNode();
-	CaseNode(Case c, int sim);
+	CaseNode(Case c, double sim);
 
 	//accessors
 	Case getCase();
-	int getSimilarity();
+	double getSimilarity();
 
 	//comparitives
 	bool operator==(const CaseNode &comp);
@@ -30,7 +30,7 @@ public:
 protected:
 private:
 	Case subject;
-	int similarity;
+	double similarity;
 };
 
 #endif

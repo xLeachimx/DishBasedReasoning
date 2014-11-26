@@ -10,11 +10,11 @@
 
 //constructor
 CaseNode::CaseNode(){
-	similarity = 0;
+	similarity = 0.0;
 	subject = Case();
 }
 
-CaseNode::CaseNode(Case c, int sim){
+CaseNode::CaseNode(Case c, double sim){
 	similarity = sim;
 	subject = c;
 }
@@ -24,7 +24,7 @@ Case CaseNode::getCase(){
 	return subject;
 }
 
-int CaseNode::getSimilarity(){
+double CaseNode::getSimilarity(){
 	return similarity;
 }
 

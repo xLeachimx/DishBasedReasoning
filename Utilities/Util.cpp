@@ -18,5 +18,25 @@ vector<string> intersection(vector<string> one, vector<string> two){
 			}
 		}
 	}
+	return unique(result);
+}
+
+vector<string> union(vector<string> one, vector<string> two){
+	vector<string> result = one;
+	for(int i = 0;i < two.size();i++){
+		result.push_back(two[i]);
+	}
+	return unique(result);
+}
+
+vector<string> unique(vector<string> set){
+	vector<string> result = vector<string>();
+	for(int i = 0;i < set.size();i++){
+		bool add = true;
+		for(int j = i+1;j < set.size();j++){
+			if(set[i] == set[j])add = false;
+		}
+		if(add)result.push_back(set[i]);
+	}
 	return result;
 }
