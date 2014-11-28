@@ -21,7 +21,7 @@ vector<string> intersection(vector<string> one, vector<string> two){
 	return unique(result);
 }
 
-vector<string> union(vector<string> one, vector<string> two){
+vector<string> setUnion(vector<string> one, vector<string> two){
 	vector<string> result = one;
 	for(int i = 0;i < two.size();i++){
 		result.push_back(two[i]);

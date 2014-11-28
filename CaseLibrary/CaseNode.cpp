@@ -29,22 +29,22 @@ double CaseNode::getSimilarity(){
 }
 
 //comparitives
-bool CaseNode::operator==(const CaseNode &comp){
+bool CaseNode::operator==(const CaseNode &comp) const{
 	return similarity == comp.similarity;
 }
 
-bool CaseNode::operator>(const CaseNode &comp){
+bool CaseNode::operator>(const CaseNode &comp) const{
 	return similarity > comp.similarity;
 }
 
-bool CaseNode::operator<(const CaseNode &comp){
+bool CaseNode::operator<(const CaseNode &comp) const{
 	return similarity < comp.similarity;
 }
 
-bool CaseNode::operator>=(const CaseNode &comp){
+bool CaseNode::operator>=(const CaseNode &comp) const{
 	return similarity >= comp.similarity;
 }
 
-bool CaseNode::operator<=(const CaseNode &comp){
+bool CaseNode::operator<=(const CaseNode &comp) const{
 	return similarity <= comp.similarity;
 }

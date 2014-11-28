@@ -6,6 +6,8 @@
 * Dish Based Reasoning
 */
 
+#include "DishLibrary.hpp"
+
 //constructor
 DishLibrary::DishLibrary(){
 	dishes = vector<Dish>();
@@ -23,7 +25,7 @@ vector<Dish> DishLibrary::getDishes(){
 //mutators
 bool DishLibrary::addDish(Dish add){ //returns false if already exists
 	dishes.push_back(add);
-
+	return true;
 }
 
 //queries
@@ -49,7 +51,7 @@ int DishLibrary::findDish(string name){
 	return -1;
 }
 
-Dish DishLibrary::mostSimilar(Dish comp){
+Dish DishLibrary::query(Dish comp){
 	double highest = 0.0;
 	int highLoc = -1;
 	for(int i = 0;i < dishes.size();i++){
@@ -60,10 +62,10 @@ Dish DishLibrary::mostSimilar(Dish comp){
 		}
 	}
 	if(highLoc == -1)return Dish();
-	return dishes[i];
+	return dishes[highLoc];
 }
 
-Dish DishLibrary::mostSimilar(Case Comp){
+Dish DishLibrary::query(Case comp){
 	int highest = 0.0;
 	int highLoc = -1;
 	for(int i = 0;i < dishes.size();i++){
@@ -74,7 +76,7 @@ Dish DishLibrary::mostSimilar(Case Comp){
 		}
 	}
 	if(highLoc == -1)return Dish();
-	return dishes[i];
+	return dishes[highLoc];
 }
 
 //operators

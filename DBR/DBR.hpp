@@ -27,6 +27,7 @@ public:
 	void init(string caseFile, string dishFile);
 
 	void addCase(string casefile, Dish solution);
+	void addCase(Case add);
 	void addDish(Dish add);
 
 	Dish query(string filename);
@@ -40,8 +41,8 @@ protected:
 	Case parseCaseFile(string filename);
 
 	//convertors
-	vector<Dish> vvToDishes(vector<vector<string>> items);
-	vector<Case> vvToCases(vector<vector<string>> items);
+	vector<Dish> vvToDishes(vector<vector<string> > items);
+	vector<Case> vvToCases(vector<vector<string> > items);
 private:
 	DishLibrary dishLib;
 	CaseLibrary caseLib;

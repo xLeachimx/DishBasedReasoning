@@ -16,7 +16,7 @@ Case::Case(){
 	solution = Dish();
 }
 
-Case::Case(vector<string> like, vector<string> dislike, Dish &sol){
+Case::Case(vector<string> like, vector<string> dislike, Dish sol){
 	likes = like;
 	dislikes = dislikes;
 	solution = sol;
@@ -56,10 +56,10 @@ string Case::toString(){
 double Case::similarity(Case comp){
 	vector<string> sameLikes = intersection(likes, comp.getLikes());
 	vector<string> sameDislikes = intersection(dislikes, comp.getDislikes());
-	vector<string> oppLikes = intersection(like, comp.getDislikes());
+	vector<string> oppLikes = intersection(likes, comp.getDislikes());
 	vector<string> oppDislikes = intersection(dislikes, comp.getLikes());
-	vector<string> possibles = union(union(likes, dislikes) union(comp.getLikes(), comp.getDislikes()));
+	vector<string> possibles = setUnion(setUnion(likes, dislikes), setUnion(comp.getLikes(), comp.getDislikes()));
 	double numerator = (sameLikes.size() + sameDislikes.size()) - (oppLikes.size() + oppDislikes.size());
-	double denominator = possibles.size():
+	double denominator = possibles.size();
 	return numerator/denominator;
 }

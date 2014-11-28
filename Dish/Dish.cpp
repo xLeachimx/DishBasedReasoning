@@ -33,9 +33,9 @@ string Dish::getName(){
 string Dish::toString(){
 	string result = name;
 	result += ',';
-	for(int i = 0;i < likes.size();i++){
-		result += likes[i];
-		if(i != likes.size()-1)result += ',';
+	for(int i = 0;i < attributes.size();i++){
+		result += attributes[i];
+		if(i != attributes.size()-1)result += ',';
 	}
 	return result;
 }
@@ -43,13 +43,13 @@ string Dish::toString(){
 //comparisons
 double Dish::similarity(Dish comp){
 	double numerator = intersection(attributes, comp.getAttributes()).size();
-	double denominator = union(attributes, comp.getAttributes()).size();
+	double denominator = setUnion(attributes, comp.getAttributes()).size();
 	return numerator/denominator;
 }
 
-double similarity(Case comp){
+double Dish::similarity(Case comp){
 	double numerator = intersection(attributes, comp.getLikes()).size() - intersection(attributes, comp.getDislikes()).size();
-	double denominator = union(attributes, comp.getLikes());
+	double denominator = setUnion(attributes, comp.getLikes()).size();
 	return numerator/denominator;
 }
 
