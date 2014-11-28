@@ -21,7 +21,7 @@ class Case{
 public:
 	//constructors
 	Case();
-	Case(vector<string> like, vector<string> dislike, Dish &sol);
+	Case(vector<string> like, vector<string> dislike, Dish sol);
 
 	//accessors
 	vector<string> getLikes();

@@ -27,8 +27,10 @@ public:
 	void init(string caseFile, string dishFile);
 
 	void addCase(string casefile, Dish solution);
+	void addDish(Dish add);
 
 	Dish query(string filename);
+	Dish query(Case problem);
 
 	bool save(string caseFile, string dishFile);
 protected:
