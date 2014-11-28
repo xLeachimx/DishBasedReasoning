@@ -17,8 +17,8 @@ Each query to the recommendation system is a case in an of itself. So the system
 How to run
 ==================
 
-	make
-	./DishBasedReasoner <your case library file here> <your dish library file here>
+	$ make
+	$ ./DishBasedReasoner <your case library file here> <your dish library file here>
 
 ==================
 Formatting for Library files
