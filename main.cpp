@@ -60,6 +60,7 @@ int mainMenu(){
 	cout << "1. Add Dish" <<endl;
 	cout << "2. Get a Suggestion" <<endl;
 	cout << "3. Done" <<endl;
+	cout << "Choice:";
 	cin >> choice;
 	return choice;
 }
