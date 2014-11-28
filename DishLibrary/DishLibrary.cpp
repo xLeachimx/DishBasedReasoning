@@ -39,6 +39,8 @@ bool DishLibrary::isDish(string name){
 }
 
 Dish DishLibrary::getDish(string name){
+	int loc = findDish(name);
+	if(loc == -1)return Dish("Not found", vector<string>());
 	return dishes[findDish(name)];
 }
 
@@ -56,7 +58,7 @@ Dish DishLibrary::query(Dish comp){
 	int highLoc = -1;
 	for(int i = 0;i < dishes.size();i++){
 		double temp = dishes[i].similarity(comp);
-		if(dishes[i].similarity(comp) > highest){
+		if(temp > highest){
 			highest = temp;
 			highLoc = i;
 		}
@@ -66,11 +68,11 @@ Dish DishLibrary::query(Dish comp){
 }
 
 Dish DishLibrary::query(Case comp){
-	int highest = 0.0;
+	double highest = 0.0;
 	int highLoc = -1;
 	for(int i = 0;i < dishes.size();i++){
-		int temp = dishes[i].similarity(comp);
-		if(dishes[i].similarity(comp) > highest){
+		double temp = dishes[i].similarity(comp);
+		if(temp > highest){
 			highest = temp;
 			highLoc = i;
 		}

@@ -8,10 +8,16 @@
 
 #include "DBR.hpp"
 #include "CaseNode.hpp"
-#include "CSV.hpp"
+#include "Util.hpp"
 
 #include <fstream>
+using std::ifstream;
 using std::ofstream;
+using std::getline;
+
+#include <iostream>
+using std::cout;
+using std::endl;
 
 //constructors
 DBR::DBR(){
@@ -55,8 +61,11 @@ Dish DBR::query(string filename){
 }
 
 Dish DBR::query(Case problem){
+	cout << "Querying with " << problem.toString() <<endl;
 	Dish solution = caseLib.querySol(problem);
+	cout << "Not during query" <<endl;
 	if(solution.getName() == ""){
+		cout << "No name" <<endl;
 		solution = dishLib.query(problem);
 	}
 	return solution;
@@ -67,12 +76,14 @@ bool DBR::save(string caseFile, string dishFile){
 	fout.open(caseFile);
 	if(!fout)return false;
 	for(int i = 0;i < caseLib.getCases().size();i++){
+		cout << caseLib.getCases()[i].toString() <<endl;
 		fout << caseLib.getCases()[i].toString() << '\n';
 	}
 	fout.close();
 	fout.open(dishFile);
 	if(!fout)return false;
 	for(int i = 0;i < dishLib.getDishes().size();i++){
+		cout << dishLib.getDishes()[i].toString() <<endl;
 		fout << dishLib.getDishes()[i].toString() << '\n';
 	}
 	fout.close();
@@ -82,44 +93,54 @@ bool DBR::save(string caseFile, string dishFile){
 
 //for parsing files
 void DBR::parseDishLibFile(string filename){
-	CSV dishLibfile = CSV(filename);
-	vector<vector<string> > dishes = dishLibfile.getItems();
-	dishLib = DishLibrary(vvToDishes(dishes));
+	dishLib = DishLibrary();
+	ifstream fin;
+	fin.open(filename);
+	if(!fin)return;
+	string line = "";
+	getline(fin, line);
+	while(line != "" && !fin.eof()){
+		vector<string> items = split(line, ',');
+		for(int i = 0;i < items.size();i++){
+			cout << items[i] <<endl;
+		}
+		string name = items[0];
+		items[0] = items[items.size()-1];
+		items.pop_back();
+		dishLib.addDish(Dish(name, items));
+		getline(fin, line);
+	}
+	fin.close();
 }
 
 void DBR::parseCaseLibFile(string filename){
-	CSV caseLibFile = CSV(filename);
-	vector<vector<string> > cases = caseLibFile.getItems();
-	caseLib = CaseLibrary(vvToCases(cases));
+	caseLib = CaseLibrary();
+	ifstream fin;
+	fin.open(filename);
+	if(!fin)return;
+	string line = "";
+	getline(fin, line);
+	while(line != "" && !fin.eof()){
+		vector<string> likes = split(line, ',');
+		getline(fin, line);
+		vector<string> dislikes = split(line, ',');
+		getline(fin, line);
+		caseLib.addCase(Case(likes, dislikes, dishLib.getDish(line)));
+		getline(fin, line);
+	}
+	fin.close();
 }
 
 Case DBR::parseCaseFile(string filename){
-	CSV casefile = CSV(filename);
-	vector<vector<string> > temp = casefile.getItems();
-	return vvToCases(temp)[0];
-}
-
-//convertors
-vector<Dish> DBR::vvToDishes(vector<vector<string> > items){
-	vector<Dish> result = vector<Dish>();
-	for(int i = 0;i < items.size();i++){
-		string name = items[i][0];
-		//remove the name element as an attribute
-		items[i][0] = items[i][items.size()-1];
-		items[i].pop_back();
-		result.push_back(Dish(name, items[i]));
-	}
-	return result;
-}
-
-vector<Case> DBR::vvToCases(vector<vector<string> > items){
-	vector<Case> result = vector<Case>();
-	for(int i = 0;i < items.size();i+=3){
-		vector<string> likes, dislikes;
-		likes = items[i];
-		dislikes = items[i+1];
-		Dish solution = dishLib.getDish(items[i+2][0]);
-		result.push_back(Case(likes, dislikes, solution));
-	}
-	return result;
+	caseLib = CaseLibrary();
+	ifstream fin;
+	fin.open(filename);
+	if(!fin)return Case();
+	string line = "";
+	getline(fin, line);
+	vector<string> likes = split(line, ',');
+	getline(fin, line);
+	vector<string> dislikes = split(line, ',');
+	fin.close();
+	return Case(likes, dislikes, Dish());
 }

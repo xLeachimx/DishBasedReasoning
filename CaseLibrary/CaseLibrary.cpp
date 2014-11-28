@@ -54,6 +54,7 @@ Dish CaseLibrary::querySol(Case c){
 		}
 	}
 	if(highLoc == -1){
+		return Dish();
 	}
 	return cases[highLoc].getSolution();
 }
