@@ -15,10 +15,6 @@ using std::ifstream;
 using std::ofstream;
 using std::getline;
 
-#include <iostream>
-using std::cout;
-using std::endl;
-
 //constructors
 DBR::DBR(){
 	dishLib = DishLibrary();
@@ -61,11 +57,8 @@ Dish DBR::query(string filename){
 }
 
 Dish DBR::query(Case problem){
-	cout << "Querying with " << problem.toString() <<endl;
 	Dish solution = caseLib.querySol(problem);
-	cout << "Not during query" <<endl;
 	if(solution.getName() == ""){
-		cout << "No name" <<endl;
 		solution = dishLib.query(problem);
 	}
 	return solution;

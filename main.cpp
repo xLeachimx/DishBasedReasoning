@@ -99,7 +99,7 @@ bool goodSuggestion(){
 	char ans = ' ';
 	cout << "Did this help?(y/n):";
 	cin >> ans;
-	while(ans != 'y' && ans != 'n')
+	while(ans != 'y' && ans != 'n');
 	if(ans == 'y')return true;
 	return false;
 }
