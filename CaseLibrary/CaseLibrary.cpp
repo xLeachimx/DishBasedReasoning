@@ -39,11 +39,11 @@ vector<CaseNode> CaseLibrary::queryList(Case c){//gets all similar cases
 			result.push_back(temp);
 		}
 	}
-	sort(temp);
+	sort(result.begin(), result.end());
 	return result;
 }
 
-Dish CaseLibrary::querySol(Case C){
+Dish CaseLibrary::querySol(Case c){
 	int highest = -1;
 	int highLoc = -1;
 	for(int i = 0;i < cases.size();i++){

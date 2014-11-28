@@ -22,11 +22,11 @@ public:
 	double getSimilarity();
 
 	//comparitives
-	bool operator==(const CaseNode &comp);
-	bool operator>(const CaseNode &comp);
-	bool operator<(const CaseNode &comp);
-	bool operator>=(const CaseNode &comp);
-	bool operator<=(const CaseNode &comp);
+	bool operator==(const CaseNode &comp)const;
+	bool operator>(const CaseNode &comp)const;
+	bool operator<(const CaseNode &comp)const;
+	bool operator>=(const CaseNode &comp)const;
+	bool operator<=(const CaseNode &comp)const;
 protected:
 private:
 	Case subject;

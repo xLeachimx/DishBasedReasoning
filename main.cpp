@@ -26,17 +26,19 @@ Case constructProblem();
 Dish constructDish();
 bool goodSuggestion();
 
-int main(char **argv, int argc){
+int main(int argc, char **argv){
 	DBR reasoner = DBR(argv[1],argv[2]);
 	int choice = 0;
+	Case prob = Case();
+	Dish sol = Dish();
 	while((choice = mainMenu()) != 3){
 		switch(choice){
 			case 1:
 				reasoner.addDish(constructDish());
 				break;
 			case 2:
-				Case prob = constructProblem()
-				Dish sol = reasoner.query(prob);
+				prob = constructProblem();
+				sol = reasoner.query(prob);
 				cout << "You should try ";
 				cout << sol.getName() <<endl;
 				if(goodSuggestion()){
@@ -45,6 +47,7 @@ int main(char **argv, int argc){
 				break;
 			default:
 				cout << "Unrecognized input!" <<endl;
+				break;
 		}
 	}
 	cout << "Bye!" <<endl;
@@ -80,7 +83,7 @@ Case constructProblem(){
 
 Dish constructDish(){
 	string item = "";
-	stirng name = "";
+	string name = "";
 	vector<string> attr = vector<string>();
 	cout << "Name of the Dish:";
 	cin >> name;
@@ -93,7 +96,7 @@ Dish constructDish(){
 }
 
 bool goodSuggestion(){
-	char ans = '';
+	char ans = ' ';
 	cout << "Did this help?(y/n):";
 	cin >> ans;
 	while(ans != 'y' && ans != 'n')

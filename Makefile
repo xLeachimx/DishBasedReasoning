@@ -2,34 +2,34 @@ COMPILEDFILES = Case.o CaseLibrary.o CaseNode.o DBR.o DishLibrary.o Dish.o Util.
 TEMPFOLDER = temp
 PROGNAME = DishBasedReasoner
 
-all: main
+all: main clean
 
 main: copy $(COMPILEDFILES)
 	cd $(TEMPFOLDER) && \
 	g++ $(COMPILEDFILES) main.cpp -o $(PROGNAME)
 	cp $(TEMPFOLDER)/$(PROGNAME) ./
 
-Case.o:
+Case.o: Util.o
 	cd $(TEMPFOLDER) && \
 	g++ Case.cpp -c
 
-CaseLibrary.o:
+CaseLibrary.o: Case.o CaseNode.o
 	cd $(TEMPFOLDER) && \
 	g++ CaseLibrary.cpp -c
 
-CaseNode.o:
+CaseNode.o: Case.o
 	cd $(TEMPFOLDER) && \
 	g++ CaseNode.cpp -c
 
-DBR.o:
+DBR.o: CaseLibrary.o DishLibrary.o Dish.o Case.o CSV.o
 	cd $(TEMPFOLDER) && \
 	g++ DBR.cpp -c
 
-Dish.o:
+Dish.o: Util.o
 	cd $(TEMPFOLDER) && \
 	g++ Dish.cpp -c
 
-DishLibrary.o:
+DishLibrary.o: Dish.o
 	cd $(TEMPFOLDER) && \
 	g++ DishLibrary.cpp -c
 
@@ -50,6 +50,7 @@ copy:
 	cp DishLibrary/* $(TEMPFOLDER)
 	cp Utilities/* $(TEMPFOLDER)
 	cp CSV/* $(TEMPFOLDER)
+	cp main.cpp $(TEMPFOLDER)
 
 clean:
 	rm -rf $(TEMPFOLDER)

@@ -12,7 +12,7 @@
 #include <vector>
 #include <string>
 using std::vector;
-using std:string;
+using std::string;
 
 #include "Dish.hpp"
 #include "Case.hpp"
@@ -35,8 +35,8 @@ public:
 	int findDish(string name);
 
 	//similarities
-	Dish mostSimilar(Dish comp);
-	Dish mostSimilar(Case Comp);
+	Dish query(Dish comp);
+	Dish query(Case Comp);
 
 	//operators
 	Dish &operator[](const int index);

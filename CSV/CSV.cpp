@@ -7,20 +7,16 @@ using std::getline;
 using std::endl;
 
 CSV::CSV(){
-	items = vector<vector<string>>();
+	items = vector<vector<string> >();
 }
 
 CSV::CSV(string filename){
-	items = vector<vector<string>>();
+	items = vector<vector<string> >();
 	read(filename); 
 }
 
-vector<<vector> CSV::getItems(){
+vector<vector<string> > CSV::getItems(){
 	return items;
-}
-
-void CSV::addItem(string str){
-	items.push_back(vector<str>(1,str));
 }
 
 //file I/O
@@ -29,13 +25,15 @@ bool CSV::read(string filename){
 	fin.open(filename);
 	if(fin){
 		while(!fin.eof()){
-			string line = '';
+			string line = "";
 			getline(fin,line);
 			vector<string> itemSplit = split(line);
 			items.push_back(itemSplit);
 		}
 		fin.close();
+		return true;
 	}
+	return false;
 }
 
 bool CSV::write(string filename){
@@ -48,15 +46,17 @@ bool CSV::write(string filename){
 			}
 		}
 		fout.close();
+		return true;
 	}
+	return false;
 	
 }
 
 vector<string> CSV::split(string str, char sep){
 	vector<string> strs = vector<string>();
-	string temp = '';
+	string temp = "";
 	for(int i = 0;i < str.length();i++){
-		if(str[i]==',' && temp != ''){
+		if(str[i]==',' && temp != ""){
 			strs.push_back(temp);
 		}
 		else if(str[i] != ','){
@@ -66,11 +66,11 @@ vector<string> CSV::split(string str, char sep){
 	return strs;
 }
 
-string CSV::join(vector<string> str, char sep){
-	string result = '';
-	for(int i = 0;i < str.length();i++){
-		result.append(str[i]);
-		if(i != str.length()-1){
+string CSV::join(vector<string> strs, char sep){
+	string result = "";
+	for(int i = 0;i < strs.size();i++){
+		result.append(strs[i]);
+		if(i != strs.size()-1){
 			result.push_back(sep);
 		}
 	}

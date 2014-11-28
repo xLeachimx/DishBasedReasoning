@@ -19,7 +19,7 @@ public:
 	CSV();
 	CSV(string filename);
 	
-	vecotr<vector<string>> getItems();
+	vector<vector<string> > getItems();
 	
 	//file I/O
 	bool read(string filename);
@@ -27,9 +27,9 @@ public:
 	
 protected:
 	vector<string> split(string str, char sep = ',');
-	string join(vector<string> str, char sep = ',');
+	string join(vector<string> strs, char sep = ',');
 private:
-	vector<vector<string>> items;
+	vector<vector<string> > items;
 };
 
 #endif
