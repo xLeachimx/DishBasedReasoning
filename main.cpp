@@ -60,6 +60,7 @@ int mainMenu(){
 	cout << "1. Add Dish" <<endl;
 	cout << "2. Get a Suggestion" <<endl;
 	cout << "3. Done" <<endl;
+	cout << "Choice:";
 	cin >> choice;
 	return choice;
 }
@@ -99,7 +100,7 @@ bool goodSuggestion(){
 	char ans = ' ';
 	cout << "Did this help?(y/n):";
 	cin >> ans;
-	while(ans != 'y' && ans != 'n')
+	while(ans != 'y' && ans != 'n');
 	if(ans == 'y')return true;
 	return false;
 }

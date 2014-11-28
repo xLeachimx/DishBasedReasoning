@@ -18,5 +18,6 @@ using std::string;
 vector<string> intersection(vector<string> one, vector<string> two);
 vector<string> setUnion(vector<string> one, vector<string> two);
 vector<string> unique(vector<string> set);
+vector<string> split(string str, char sep = ',');
 
 #endif

@@ -40,3 +40,21 @@ vector<string> unique(vector<string> set){
 	}
 	return result;
 }
+
+vector<string> split(string str, char sep){
+	vector<string> strs = vector<string>();
+	string temp = "";
+	for(int i = 0;i < str.length();i++){
+		if(str[i]==',' && temp != ""){
+			strs.push_back(temp);
+			temp = "";
+		}
+		else if(str[i] != ','){
+			temp.push_back(str[i]);
+		}
+	}
+	if(temp != ""){
+		strs.push_back(temp);
+	}
+	return strs;
+}

@@ -39,10 +39,6 @@ protected:
 	void parseDishLibFile(string filename);
 	void parseCaseLibFile(string filename);
 	Case parseCaseFile(string filename);
-
-	//convertors
-	vector<Dish> vvToDishes(vector<vector<string> > items);
-	vector<Case> vvToCases(vector<vector<string> > items);
 private:
 	DishLibrary dishLib;
 	CaseLibrary caseLib;
