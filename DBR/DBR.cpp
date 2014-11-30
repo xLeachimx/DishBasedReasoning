@@ -92,9 +92,6 @@ void DBR::parseDishLibFile(string filename){
 	getline(fin, line);
 	while(line != "" && !fin.eof()){
 		vector<string> items = split(line, ',');
-		for(int i = 0;i < items.size();i++){
-			cout << items[i] <<endl;
-		}
 		string name = items[0];
 		items[0] = items[items.size()-1];
 		items.pop_back();
