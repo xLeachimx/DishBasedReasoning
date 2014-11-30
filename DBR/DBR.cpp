@@ -69,14 +69,12 @@ bool DBR::save(string caseFile, string dishFile){
 	fout.open(caseFile);
 	if(!fout)return false;
 	for(int i = 0;i < caseLib.getCases().size();i++){
-		cout << caseLib.getCases()[i].toString() <<endl;
 		fout << caseLib.getCases()[i].toString() << '\n';
 	}
 	fout.close();
 	fout.open(dishFile);
 	if(!fout)return false;
 	for(int i = 0;i < dishLib.getDishes().size();i++){
-		cout << dishLib.getDishes()[i].toString() <<endl;
 		fout << dishLib.getDishes()[i].toString() << '\n';
 	}
 	fout.close();
