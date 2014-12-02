@@ -73,6 +73,7 @@ Case constructProblem(){
 		cout << "Enter something you DO want(Enter end when done, also do not use commas):" <<endl;
 		cin >> item;
 	}while(item != "end");
+	item = "";
 	vector<string> notWants = vector<string>();
 	do{
 		if(item != "")notWants.push_back(item);
