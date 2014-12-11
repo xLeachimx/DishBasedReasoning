@@ -68,16 +68,16 @@ Dish DishLibrary::query(Dish comp){
 }
 
 Dish DishLibrary::query(Case comp){
-	double highest = 0.0;
-	int highLoc = -1;
-	for(int i = 0;i < dishes.size();i++){
+	if(dishes.size() == 0)return Dish();
+	double highest = dishes[0];
+	int highLoc = dishes[0].similarity(comp);
+	for(int i = 1;i < dishes.size();i++){
 		double temp = dishes[i].similarity(comp);
 		if(temp > highest){
 			highest = temp;
 			highLoc = i;
 		}
 	}
-	if(highLoc == -1)return Dish();
 	return dishes[highLoc];
 }
 
