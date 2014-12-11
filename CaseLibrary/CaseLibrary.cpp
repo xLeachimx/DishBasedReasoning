@@ -48,6 +48,10 @@ Dish CaseLibrary::querySol(Case c){
 	int highLoc = -1;
 	for(int i = 0;i < cases.size();i++){
 		double temp = c.similarity(cases[i]);
+		cout << "Similarity:" <<endl;
+		cout << temp <<endl;
+		cout << "Name" <<endl;
+		cout << cases[i].toString() <<endl;
 		if(temp > THRESHOLD && temp > highest){
 			highest = temp;
 			highLoc = i;
