@@ -44,11 +44,11 @@ vector<CaseNode> CaseLibrary::queryList(Case c){//gets all similar cases
 }
 
 Dish CaseLibrary::querySol(Case c){
-	int highest = -1;
+	double highest = THRESHOLD;
 	int highLoc = -1;
 	for(int i = 0;i < cases.size();i++){
-		int temp = c.similarity(cases[i]);
-		if(temp > highest){
+		double temp = c.similarity(cases[i]);
+		if(temp > THRESHOLD && temp > highest){
 			highest = temp;
 			highLoc = i;
 		}
