@@ -11,6 +11,9 @@
 #include "Util.hpp"
 
 #include <fstream>
+#include <isotream>
+using std::cout;
+using std::endl;
 using std::ifstream;
 using std::ofstream;
 using std::getline;
@@ -113,6 +116,21 @@ void DBR::parseCaseLibFile(string filename){
 		getline(fin, line);
 		vector<string> dislikes = split(line, ',');
 		getline(fin, line);
+		cout << "Likes:" <<endl;
+		for(int i = 0;i < likes.size();i++){
+			cout << likes[i];
+		}
+		cout << endl;
+		cout <<< "Dislikes: " <<endl;
+		for(int i = 0;i < likes.size();i++){
+			cout << likes[i];
+		}
+		cout << endl;
+		cout << "Solution: " <<endl;
+		for(int i = 0;i < likes.size();i++){
+			cout << likes[i];
+		}
+		cout << endl;
 		caseLib.addCase(Case(likes, dislikes, dishLib.getDish(line)));
 		getline(fin, line);
 	}
