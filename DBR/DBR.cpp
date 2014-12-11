@@ -123,13 +123,11 @@ void DBR::parseCaseLibFile(string filename){
 		cout << endl;
 		cout << "Dislikes: " <<endl;
 		for(int i = 0;i < likes.size();i++){
-			cout << likes[i];
+			cout << dislikes[i];
 		}
 		cout << endl;
 		cout << "Solution: " <<endl;
-		for(int i = 0;i < likes.size();i++){
-			cout << likes[i];
-		}
+		cout << dishLib.getDish(line).toString();
 		cout << endl;
 		caseLib.addCase(Case(likes, dislikes, dishLib.getDish(line)));
 		getline(fin, line);
