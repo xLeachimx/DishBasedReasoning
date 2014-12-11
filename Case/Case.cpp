@@ -18,7 +18,7 @@ Case::Case(){
 
 Case::Case(vector<string> like, vector<string> dislike, Dish sol){
 	likes = like;
-	dislikes = dislikes;
+	dislikes = dislike;
 	solution = sol;
 }
 

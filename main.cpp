@@ -70,13 +70,14 @@ Case constructProblem(){
 	vector<string> wants = vector<string>();
 	do{
 		if(item != "")wants.push_back(item);
-		cout << "Enter something you DO want(Enter end when done):" <<endl;
+		cout << "Enter something you DO want(Enter end when done, also do not use commas):" <<endl;
 		cin >> item;
 	}while(item != "end");
+	item = "";
 	vector<string> notWants = vector<string>();
 	do{
 		if(item != "")notWants.push_back(item);
-		cout << "Enter something you DO NOT want(Enter end when done):" <<endl;
+		cout << "Enter something you DO NOT want(Enter end when done, also do not use commas):" <<endl;
 		cin >> item;
 	}while(item != "end");
 	return Case(wants, notWants, Dish());
@@ -86,11 +87,11 @@ Dish constructDish(){
 	string item = "";
 	string name = "";
 	vector<string> attr = vector<string>();
-	cout << "Name of the Dish:";
+	cout << "Name of the Dish(No commas):";
 	cin >> name;
 	do{
 		if(item != "")attr.push_back(item);
-		cout << "Enter an attribute of the dish(Enter end when done):";
+		cout << "Enter an attribute of the dish(Enter end when done, also do not use commas):";
 		cin >> item;
 	}while(item != "end");
 	return Dish(name, attr);
