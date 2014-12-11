@@ -12,7 +12,7 @@ vector<string> intersection(vector<string> one, vector<string> two){
 	vector<string> result = vector<string>();
 	for(int i = 0 ;i < one.size();i++){
 		for(int j = 0;j < two.size();j++){
-			if(one[i] == two[i]){
+			if(one[i] == two[j]){
 				result.push_back(one[i]);
 				break;
 			}
