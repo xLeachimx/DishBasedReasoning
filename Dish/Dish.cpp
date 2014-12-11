@@ -48,8 +48,11 @@ double Dish::similarity(Dish comp){
 }
 
 double Dish::similarity(Case comp){
-	double numerator = intersection(attributes, comp.getLikes()).size() - intersection(attributes, comp.getDislikes()).size();
-	double denominator = setUnion(attributes, comp.getLikes()).size();
+	int attrLike = intersection(attributes, comp.getLikes()).size();
+	int attrDislike = intersection(attributes, comp.getDislikes()).size();
+	int possibles = setUnion(attributes, comp.getLikes()).size()
+	double numerator = attrLike-attrDislike;
+	double denominator = possibles;
 	return numerator/denominator;
 }
 
