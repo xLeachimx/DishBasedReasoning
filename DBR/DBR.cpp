@@ -11,7 +11,7 @@
 #include "Util.hpp"
 
 #include <fstream>
-#include <isotream>
+#include <iostream>
 using std::cout;
 using std::endl;
 using std::ifstream;
@@ -69,13 +69,13 @@ Dish DBR::query(Case problem){
 
 bool DBR::save(string caseFile, string dishFile){
 	ofstream fout;
-	fout.open(caseFile);
+	fout.open(caseFile.c_str());
 	if(!fout)return false;
 	for(int i = 0;i < caseLib.getCases().size();i++){
 		fout << caseLib.getCases()[i].toString() << '\n';
 	}
 	fout.close();
-	fout.open(dishFile);
+	fout.open(dishFile.c_str());
 	if(!fout)return false;
 	for(int i = 0;i < dishLib.getDishes().size();i++){
 		fout << dishLib.getDishes()[i].toString() << '\n';
@@ -89,7 +89,7 @@ bool DBR::save(string caseFile, string dishFile){
 void DBR::parseDishLibFile(string filename){
 	dishLib = DishLibrary();
 	ifstream fin;
-	fin.open(filename);
+	fin.open(filename.c_str());
 	if(!fin)return;
 	string line = "";
 	getline(fin, line);
@@ -107,7 +107,7 @@ void DBR::parseDishLibFile(string filename){
 void DBR::parseCaseLibFile(string filename){
 	caseLib = CaseLibrary();
 	ifstream fin;
-	fin.open(filename);
+	fin.open(filename.c_str());
 	if(!fin)return;
 	string line = "";
 	getline(fin, line);
@@ -121,7 +121,7 @@ void DBR::parseCaseLibFile(string filename){
 			cout << likes[i];
 		}
 		cout << endl;
-		cout <<< "Dislikes: " <<endl;
+		cout << "Dislikes: " <<endl;
 		for(int i = 0;i < likes.size();i++){
 			cout << likes[i];
 		}
@@ -140,7 +140,7 @@ void DBR::parseCaseLibFile(string filename){
 Case DBR::parseCaseFile(string filename){
 	caseLib = CaseLibrary();
 	ifstream fin;
-	fin.open(filename);
+	fin.open(filename.c_str());
 	if(!fin)return Case();
 	string line = "";
 	getline(fin, line);
