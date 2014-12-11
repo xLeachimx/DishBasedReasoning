@@ -54,12 +54,12 @@ string Case::toString(){
 
 //comparison
 double Case::similarity(Case comp){
-	vector<string> sameLikes = intersection(likes, comp.getLikes());
-	vector<string> sameDislikes = intersection(dislikes, comp.getDislikes());
-	vector<string> oppLikes = intersection(likes, comp.getDislikes());
-	vector<string> oppDislikes = intersection(dislikes, comp.getLikes());
-	vector<string> possibles = setUnion(setUnion(likes, dislikes), setUnion(comp.getLikes(), comp.getDislikes()));
-	double numerator = (sameLikes.size() + sameDislikes.size()) - (oppLikes.size() + oppDislikes.size());
-	double denominator = possibles.size();
+	int sameLikes = intersection(likes, comp.getLikes()).size();
+	int sameDislikes = intersection(dislikes, comp.getDislikes()).size();
+	int oppLikes = intersection(likes, comp.getDislikes()).size();
+	int oppDislikes = intersection(dislikes, comp.getLikes()).size();
+	int possibles = setUnion(setUnion(likes, dislikes), setUnion(comp.getLikes(), comp.getDislikes())).size();
+	double numerator = (sameLikes + sameDislikes) - (oppLikes + oppDislikes);
+	double denominator = possibles;
 	return numerator/denominator;
 }
