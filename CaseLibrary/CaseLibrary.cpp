@@ -9,6 +9,9 @@
 #include "CaseLibrary.hpp"
 
 #include <algorithm>
+#include <iostream>
+using std::cout;
+using std::endl;
 using std::sort;
 
 //constructor
