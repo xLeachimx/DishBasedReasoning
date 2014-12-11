@@ -37,10 +37,6 @@ Util.o:
 	cd $(TEMPFOLDER) && \
 	g++ Util.cpp -c
 
-CSV.o:
-	cd $(TEMPFOLDER) && \
-	g++ CSV.cpp -c
-
 copy:
 	mkdir $(TEMPFOLDER)
 	cp Case/* $(TEMPFOLDER)
@@ -49,7 +45,6 @@ copy:
 	cp Dish/* $(TEMPFOLDER)
 	cp DishLibrary/* $(TEMPFOLDER)
 	cp Utilities/* $(TEMPFOLDER)
-	cp CSV/* $(TEMPFOLDER)
 	cp main.cpp $(TEMPFOLDER)
 
 clean:
